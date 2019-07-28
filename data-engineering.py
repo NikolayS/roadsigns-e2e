@@ -67,3 +67,4 @@ ds.publish("created small and large sample sets from raw data in S3")
 ds.start()
 copyfile(ds.input("s3/signnames.csv"), ds.output("data/signnames.csv"))
 ds.publish("copied signnames.csv from S3")
+
