@@ -3,23 +3,20 @@
 #
 # In this script, we take a raw dataset from S3, and split it into two modelling sets:
 # a small and large, each containing training, test and validation sets.
-
-"""
-
-### Plan for splitting data
-
-51,839 samples, let's construct two datasets for training models...
-
-* small
-  * 10k train
-  * 1k test
-  * 500 validate
-* large
-  * 50k train
-  * 1k test
-  * 839 validate
-
-"""
+#
+# Plan for splitting data
+# -----------------------
+#
+# 51,839 samples, let's construct two datasets for training models...
+#
+# * small
+#   * 10k train
+#   * 1k test
+#   * 500 validate
+# * large
+#   * 50k train
+#   * 1k test
+#   * 839 validate
 
 import dotscience as ds
 import numpy as np
