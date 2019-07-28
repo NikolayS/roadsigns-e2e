@@ -34,17 +34,6 @@ roadsigns = pickle.load(open(ds.input("s3/roadsigns.p"),"rb"))
 if not os.path.exists("data"):
     os.mkdir("data")
 
-# Shuffle the data otherwise the small training set is
-# almost all one type of roadsign and gets crap accuracy
-
-SEED = 42
-
-for k in roadsigns.keys():
-    # Very important that we set the seed every time
-    # so that each shuffle of the keys is the same
-    np.random.seed(SEED)
-    np.random.shuffle(roadsigns[k])
-
 # Sample ranges of the data
 
 samples = [{"small-train": 10000, "small-test": 1000, "small-validate": 500},
@@ -67,4 +56,3 @@ ds.publish("created small and large sample sets from raw data in S3")
 ds.start()
 copyfile(ds.input("s3/signnames.csv"), ds.output("data/signnames.csv"))
 ds.publish("copied signnames.csv from S3")
-
