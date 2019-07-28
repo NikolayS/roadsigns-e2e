@@ -1,2 +1,3 @@
-# roadsigns-e2e
-# roadsigns-e2e
+# Dotscience roadsigns-e2e
+
+Code for data engineering and model training for Dotscience roadsigns demo.
