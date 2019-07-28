@@ -61,7 +61,9 @@ for sampleset in samples:
         result = {x: roadsigns[x][range_start:range_end] for x in roadsigns.keys()}
         pickle.dump(result, open(ds.output("data/%s.p" % (k,)), "wb"))
 
-# just make a copy of the labels so we keep them together with the data
-copyfile(ds.input("s3/signnames.csv"), ds.output("data/signnames.csv"))
+ds.publish("created small and large sample sets from raw data in S3")
 
-ds.publish("created small and large sample sets")
+# just make a copy of the labels so we keep them together with the data
+ds.start()
+copyfile(ds.input("s3/signnames.csv"), ds.output("data/signnames.csv"))
+ds.publish("copied signnames.csv from S3")
